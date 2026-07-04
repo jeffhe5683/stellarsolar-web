@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #FAFAF9;
+  color: #0A0E12;
+}
+
+::selection {
+  background-color: #FFD3A6;
+  color: #0A0E12;
+}
+
+/* Scroll-reveal: elements start hidden, JS adds .is-visible via IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #3E8FF5;
+  outline-offset: 3px;
+}
+
+
+@keyframes solarSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes lightSweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.solar-spin{animation:solarSpin 20s linear infinite;}
+.hero-float{animation:heroFloat 6s ease-in-out infinite;}
+.light-sweep{animation:lightSweep 8s linear infinite;}
+.glow-btn:hover{box-shadow:0 0 25px rgba(255,180,80,.45);transform:translateY(-2px)}
