@@ -372,3 +372,469 @@ body {
   .story-caption { max-width: 9.6rem; font-size: .72rem; }
   .story-caption-two, .story-caption-three { left: 5%; }
 }
+
+/* Pro Hero Version B — cinematic 3D-style solar story */
+.text-gradient-solar {
+  background: linear-gradient(92deg, #fff7d1 0%, #ffab63 38%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-device-shell::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 2.55rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -70px 120px rgba(0,0,0,.22);
+}
+
+.pro-hero-scene {
+  position: relative;
+  height: min(74vw, 590px);
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 2.1rem;
+  background:
+    radial-gradient(circle at 18% 34%, rgba(255, 224, 166, .62), transparent 15rem),
+    linear-gradient(180deg, #07111f 0%, #102941 43%, #17242a 62%, #09100f 100%);
+  isolation: isolate;
+  transform-style: preserve-3d;
+}
+
+.pro-hero-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5,7,10,.72) 0%, transparent 34%, transparent 72%, rgba(5,7,10,.28) 100%),
+    radial-gradient(circle at 50% 115%, rgba(255,255,255,.10), transparent 42%);
+  mix-blend-mode: screen;
+  opacity: .55;
+}
+
+.pro-sky-stars,
+.pro-sun,
+.pro-sun-orbit,
+.pro-cloud,
+.pro-hills,
+.pro-driveway,
+.pro-house,
+.pro-energy-line,
+.pro-inverter,
+.pro-battery,
+.pro-charger,
+.pro-cable,
+.pro-car,
+.pro-live-card,
+.pro-timeline {
+  position: absolute;
+}
+
+.pro-sky-stars {
+  inset: 0;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.85) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(255,255,255,.40) 0 1px, transparent 1.5px);
+  background-position: 32px 44px, 168px 96px;
+  background-size: 128px 128px, 196px 196px;
+  opacity: .58;
+  animation: pro-stars 7.2s ease-in-out infinite;
+}
+
+.pro-sun {
+  left: 16%;
+  top: 55%;
+  z-index: 3;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 32%, #ffffff 0 18%, #fff7d1 19% 48%, #ffab63 100%);
+  box-shadow: 0 0 80px 26px rgba(255,171,99,.68), 0 0 170px 62px rgba(249,115,22,.18);
+  transform: translateY(92px) scale(.82);
+  animation: pro-sunrise 7.2s cubic-bezier(.2,.8,.2,1) infinite;
+}
+
+.pro-sun-orbit {
+  left: 16%;
+  top: 50%;
+  z-index: 2;
+  width: 19rem;
+  height: 19rem;
+  border-radius: 999px;
+  transform: translate(-34%, -20%);
+  background: radial-gradient(circle, rgba(255,171,99,.26), transparent 66%);
+  animation: pro-sun-glow 7.2s ease-in-out infinite;
+}
+
+.pro-cloud {
+  z-index: 4;
+  width: 12rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  background: rgba(255, 211, 166, .16);
+  filter: blur(2px);
+  animation: pro-cloud-drift 18s ease-in-out infinite;
+}
+.pro-cloud::before,
+.pro-cloud::after {
+  content: "";
+  position: absolute;
+  bottom: .25rem;
+  border-radius: 999px;
+  background: inherit;
+}
+.pro-cloud::before { left: 2rem; width: 4.2rem; height: 4.2rem; }
+.pro-cloud::after { left: 5.9rem; width: 5.5rem; height: 5.5rem; }
+.pro-cloud-one { left: 5%; top: 20%; opacity: .48; }
+.pro-cloud-two { right: 9%; top: 15%; opacity: .32; animation-delay: -7s; }
+
+.pro-hills {
+  left: -10%;
+  right: -10%;
+  z-index: 5;
+  border-radius: 50% 50% 0 0 / 72% 58% 0 0;
+}
+.pro-hills-back { bottom: 24%; height: 24%; background: rgba(20, 47, 68, .92); }
+.pro-hills-front { bottom: 15%; height: 25%; background: #0d1919; }
+.pro-driveway {
+  z-index: 8;
+  left: -10%;
+  right: -10%;
+  bottom: -5%;
+  height: 27%;
+  background:
+    radial-gradient(ellipse at 76% 16%, rgba(124,255,143,.22), transparent 30%),
+    radial-gradient(ellipse at 56% 0%, rgba(255,171,99,.22), transparent 34%),
+    linear-gradient(180deg, #1b2022, #090c0e 76%);
+  transform: skewY(-2deg);
+}
+.pro-driveway::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 7%;
+  top: 30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+}
+
+.pro-house {
+  right: 4%;
+  bottom: 20%;
+  z-index: 12;
+  width: 66%;
+  height: 49%;
+  filter: drop-shadow(-30px 40px 40px rgba(0,0,0,.36));
+}
+.pro-house-body {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: 74%;
+  height: 58%;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 1.25rem .6rem .9rem .9rem;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.08), transparent 32%),
+    linear-gradient(135deg, #3e4851, #141a1f 65%);
+}
+.pro-roof-back {
+  position: absolute;
+  right: -1%;
+  top: 10%;
+  width: 80%;
+  height: 27%;
+  transform: skewX(-22deg) rotate(-7deg);
+  border-radius: .4rem;
+  background: #0a0e12;
+  opacity: .85;
+}
+.pro-roof {
+  position: absolute;
+  right: 0;
+  top: 14%;
+  width: 88%;
+  height: 32%;
+  transform: skewX(-22deg) rotate(-7deg);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: .55rem;
+  background: linear-gradient(135deg, #101826, #334050 60%, #0b1118);
+  box-shadow: inset 0 -18px 30px rgba(0,0,0,.34), 0 12px 28px rgba(0,0,0,.28);
+}
+.pro-solar-panels {
+  position: absolute;
+  right: 12%;
+  top: 18%;
+  z-index: 2;
+  display: grid;
+  width: 60%;
+  height: 27%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  transform: skewX(-22deg) rotate(-7deg);
+}
+.pro-solar-panels span {
+  border: 1px solid rgba(147,197,253,.36);
+  border-radius: .22rem;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.09), transparent 35%),
+    linear-gradient(135deg, #16456d, #071323 75%);
+  box-shadow: inset 0 0 16px rgba(111,168,247,.22);
+  animation: pro-panel-glow 7.2s ease-in-out infinite;
+}
+.pro-glass,
+.pro-garage {
+  position: absolute;
+  z-index: 3;
+  background: linear-gradient(180deg, rgba(255,220,175,.95), rgba(255,145,66,.30));
+  box-shadow: 0 0 28px rgba(255,171,99,.38);
+}
+.pro-glass-left { right: 56%; bottom: 15%; width: 15%; height: 35%; border-radius: .55rem; }
+.pro-glass-right { right: 35%; bottom: 22%; width: 14%; height: 22%; border-radius: .45rem; }
+.pro-garage { right: 5%; bottom: 0; width: 25%; height: 42%; border-radius: .8rem .8rem 0 0; opacity: .72; }
+
+.pro-energy-line {
+  z-index: 20;
+  fill: none;
+  pointer-events: none;
+  overflow: visible;
+}
+.pro-energy-line path {
+  stroke: #ffb45f;
+  stroke-width: 7.5;
+  stroke-linecap: round;
+  stroke-dasharray: 17 22;
+  filter: drop-shadow(0 0 7px rgba(255,171,99,.95)) drop-shadow(0 0 19px rgba(255,145,66,.65));
+  animation: pro-energy-flow 7.2s ease-in-out infinite;
+}
+.pro-line-sun { left: 13%; top: 25%; width: 54%; height: 38%; }
+.pro-line-house { right: 25%; top: 37%; width: 33%; height: 38%; }
+.pro-line-house path { animation-delay: .55s; }
+.pro-line-ev { right: 2%; bottom: 17%; width: 42%; height: 25%; }
+.pro-line-ev path { stroke: #77ff92; animation-delay: 1.3s; filter: drop-shadow(0 0 8px rgba(124,255,143,.95)) drop-shadow(0 0 18px rgba(34,197,94,.48)); }
+
+.pro-inverter,
+.pro-battery,
+.pro-charger {
+  z-index: 22;
+  border: 1px solid rgba(255,255,255,.24);
+  background: linear-gradient(180deg, #f3f5f6, #a8b0b7);
+  box-shadow: 0 18px 42px rgba(0,0,0,.38);
+}
+.pro-inverter { right: 32%; bottom: 31%; width: 7%; height: 14%; border-radius: .7rem; animation: pro-device-on 7.2s ease-in-out infinite; }
+.pro-inverter span,
+.pro-charger span {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width: .55rem;
+  height: .55rem;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: #77ff92;
+  box-shadow: 0 0 16px rgba(124,255,143,.95);
+}
+.pro-battery {
+  right: 39%;
+  bottom: 10%;
+  width: 14%;
+  height: 25%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  color: #0a0e12;
+  animation: pro-device-on 7.2s ease-in-out infinite;
+}
+.pro-battery strong {
+  position: absolute;
+  top: .72rem;
+  z-index: 2;
+  font-size: .55rem;
+  letter-spacing: .12em;
+  color: rgba(10,14,18,.62);
+}
+.pro-battery svg { z-index: 2; color: white; filter: drop-shadow(0 0 12px rgba(124,255,143,.95)); }
+.pro-battery-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9%;
+  background: linear-gradient(180deg, rgba(124,255,143,.28), rgba(22,163,74,.86));
+  animation: pro-battery-fill 7.2s ease-in-out infinite;
+}
+.pro-charger { right: 18%; bottom: 14%; width: 7%; height: 22%; border-radius: .85rem; animation: pro-charger-pulse 7.2s ease-in-out infinite; }
+.pro-cable {
+  right: 14%;
+  bottom: 13%;
+  z-index: 18;
+  width: 17%;
+  height: 12%;
+  border-bottom: 4px solid rgba(18,24,28,.92);
+  border-right: 4px solid rgba(18,24,28,.92);
+  border-radius: 0 0 4rem 0;
+}
+
+.pro-car {
+  right: -3%;
+  bottom: 6%;
+  z-index: 21;
+  width: 38%;
+  height: 18%;
+  animation: pro-car-charge 7.2s ease-in-out infinite;
+}
+.pro-car-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 17%;
+  height: 46%;
+  border-radius: 3rem 1rem .75rem .75rem;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.8), transparent 28%),
+    linear-gradient(180deg, #f2f5f7, #818e9a);
+  box-shadow: inset 0 -7px 16px rgba(0,0,0,.17);
+}
+.pro-car-top {
+  position: absolute;
+  left: 24%;
+  bottom: 51%;
+  width: 45%;
+  height: 33%;
+  border-radius: 2rem 2rem .25rem .25rem;
+  background: linear-gradient(180deg, #ffffff, #9aa7b3);
+}
+.pro-light {
+  position: absolute;
+  right: 3%;
+  bottom: 38%;
+  width: 16%;
+  height: 7%;
+  border-radius: 999px;
+  background: #fff7d1;
+  box-shadow: 0 0 22px rgba(255,247,209,.8);
+}
+.pro-wheel {
+  position: absolute;
+  bottom: 4%;
+  width: 16%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  border: 5px solid #111827;
+  background: radial-gradient(circle, #64748b 0 28%, #1f2937 29% 100%);
+  box-shadow: 0 0 24px rgba(124,255,143,.55);
+}
+.pro-wheel-left { left: 17%; }
+.pro-wheel-right { right: 15%; }
+
+.pro-live-card {
+  z-index: 25;
+  width: 10.8rem;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 1.2rem;
+  background: rgba(7, 13, 20, .55);
+  padding: .85rem .95rem;
+  color: white;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 55px rgba(0,0,0,.28);
+}
+.pro-live-card span { display: block; font-size: .7rem; color: rgba(255,255,255,.55); }
+.pro-live-card strong { display: block; margin-top: .15rem; font-size: 1.45rem; line-height: 1; letter-spacing: -.04em; }
+.pro-live-card em { display: block; margin-top: .35rem; font-style: normal; font-size: .72rem; color: rgba(255,255,255,.58); }
+.pro-card-generation { left: 5%; top: 9%; animation: pro-card-one 7.2s ease-in-out infinite; }
+.pro-card-storage { right: 6%; top: 8%; animation: pro-card-two 7.2s ease-in-out infinite; }
+
+.pro-timeline {
+  z-index: 26;
+  left: 5%;
+  right: 5%;
+  bottom: 4.5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .65rem;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.25rem;
+  background: rgba(5,7,10,.48);
+  padding: .72rem;
+  backdrop-filter: blur(18px);
+}
+.pro-step {
+  position: relative;
+  min-width: 0;
+  border-radius: .9rem;
+  padding: .55rem .6rem .55rem 1.85rem;
+  background: rgba(255,255,255,.045);
+}
+.pro-step::before {
+  content: "";
+  position: absolute;
+  left: .65rem;
+  top: 50%;
+  width: .58rem;
+  height: .58rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: #ffab63;
+  box-shadow: 0 0 16px rgba(255,171,99,.8);
+  animation: pro-step-pulse 7.2s ease-in-out infinite;
+}
+.pro-step:nth-child(2)::before { animation-delay: .45s; }
+.pro-step:nth-child(3)::before { animation-delay: .9s; }
+.pro-step:nth-child(4)::before { background: #77ff92; animation-delay: 1.35s; }
+.pro-step span { display: block; font-size: .62rem; color: rgba(255,255,255,.44); }
+.pro-step strong { display: block; margin-top: .05rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .78rem; color: white; }
+.pro-step em { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-style: normal; font-size: .66rem; color: rgba(255,255,255,.52); }
+
+@keyframes pro-stars { 0%, 10% { opacity: .62; } 38%, 100% { opacity: .08; } }
+@keyframes pro-sunrise {
+  0%, 9% { transform: translateY(96px) scale(.78); opacity: 0; }
+  34%, 100% { transform: translateY(-26px) scale(1); opacity: 1; }
+}
+@keyframes pro-sun-glow {
+  0%, 16% { opacity: .08; transform: translate(-34%, -5%) scale(.66); }
+  42%, 100% { opacity: 1; transform: translate(-34%, -26%) scale(1.18); }
+}
+@keyframes pro-cloud-drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(22px); } }
+@keyframes pro-panel-glow {
+  0%, 34% { filter: brightness(.72); }
+  50%, 100% { filter: brightness(1.75); box-shadow: inset 0 0 18px rgba(111,168,247,.48), 0 0 20px rgba(255,171,99,.34); }
+}
+@keyframes pro-energy-flow {
+  0%, 38% { opacity: 0; stroke-dashoffset: 120; }
+  55%, 100% { opacity: 1; stroke-dashoffset: -130; }
+}
+@keyframes pro-device-on { 0%, 48% { opacity: .56; filter: brightness(.72); } 68%, 100% { opacity: 1; filter: brightness(1.08); } }
+@keyframes pro-battery-fill { 0%, 54% { height: 8%; } 82%, 100% { height: 86%; } }
+@keyframes pro-charger-pulse { 0%, 68% { opacity: .58; filter: brightness(.78); } 86%, 100% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 16px rgba(124,255,143,.42)); } }
+@keyframes pro-car-charge { 0%, 70% { filter: brightness(.82); } 88%, 100% { filter: brightness(1.08) drop-shadow(0 0 20px rgba(124,255,143,.38)); } }
+@keyframes pro-card-one { 0%, 11%, 42%, 100% { opacity: 0; transform: translateY(10px); } 17%, 36% { opacity: 1; transform: translateY(0); } }
+@keyframes pro-card-two { 0%, 48%, 100% { opacity: 0; transform: translateY(10px); } 58%, 90% { opacity: 1; transform: translateY(0); } }
+@keyframes pro-step-pulse { 0%, 38% { opacity: .35; transform: translateY(-50%) scale(.85); } 52%, 100% { opacity: 1; transform: translateY(-50%) scale(1); } }
+
+@media (max-width: 900px) {
+  .pro-hero-scene { min-height: 500px; }
+  .pro-house { right: -3%; width: 73%; }
+  .pro-live-card { width: 9.8rem; }
+}
+
+@media (max-width: 640px) {
+  .pro-hero-scene { min-height: 455px; border-radius: 1.5rem; }
+  .pro-house { right: -10%; width: 86%; bottom: 24%; }
+  .pro-sun { left: 20%; width: 4.5rem; height: 4.5rem; }
+  .pro-line-sun { left: 16%; top: 27%; width: 62%; }
+  .pro-battery { right: 42%; width: 17%; }
+  .pro-charger { right: 13%; }
+  .pro-car { width: 46%; right: -12%; }
+  .pro-live-card { width: 8.8rem; padding: .72rem; }
+  .pro-live-card strong { font-size: 1.18rem; }
+  .pro-card-storage { display: none; }
+  .pro-timeline { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  .pro-step { padding-top: .45rem; padding-bottom: .45rem; }
+}
