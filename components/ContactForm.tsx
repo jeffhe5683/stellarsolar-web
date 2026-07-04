@@ -48,37 +48,36 @@ export default function ContactForm() {
               Get in touch
             </p>
             <h2 className="text-4xl font-semibold tracking-tightest text-ink leading-tight">
-              Let&rsquo;s see what your roof can do.
+              Book a clean, professional quote.
             </h2>
             <p className="mt-5 text-slate-600 leading-relaxed max-w-sm">
-              Tell us a bit about your home and someone from our design team
-              will follow up with a free, no-pressure quote.
+              Tell us about the job and we will follow up with a clear solar or battery recommendation.
             </p>
 
             <div className="mt-10 space-y-5">
               <a
-                href="tel:+18005551234"
+                href="tel:+61400000000"
                 className="flex items-center gap-3 text-slate-700 hover:text-ink transition-colors focus-ring rounded-sm"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-paper border border-line">
                   <Phone size={16} />
                 </span>
-                (800) 555-1234
+                0400 000 000
               </a>
               <a
-                href="mailto:hello@stellarsolar.example"
+                href="mailto:hello@stellarsolar.au"
                 className="flex items-center gap-3 text-slate-700 hover:text-ink transition-colors focus-ring rounded-sm"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-paper border border-line">
                   <Mail size={16} />
                 </span>
-                hello@stellarsolar.example
+                hello@stellarsolar.au
               </a>
               <div className="flex items-center gap-3 text-slate-700">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-paper border border-line">
                   <MapPin size={16} />
                 </span>
-                Serving the greater metro area
+                Serving Adelaide and South Australia
               </div>
             </div>
           </Reveal>
@@ -93,8 +92,7 @@ export default function ContactForm() {
                   Request received.
                 </h3>
                 <p className="mt-2 text-slate-600 max-w-sm">
-                  A member of our team will reach out within one business day
-                  with your free quote.
+                  A member of the team will reach out with your free quote and next steps.
                 </p>
               </div>
             ) : (
@@ -143,7 +141,7 @@ export default function ContactForm() {
                     id="service"
                     name="service"
                     defaultValue="Solar Installation"
-                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] text-ink focus-ring focus:outline-none"
+                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] text-ink focus-ring focus:outline-none transition-colors hover:border-solar-200"
                   >
                     <option>Solar Installation</option>
                     <option>Battery Storage</option>
@@ -164,7 +162,7 @@ export default function ContactForm() {
                     name="message"
                     rows={4}
                     className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] text-ink focus-ring focus:outline-none resize-none"
-                    placeholder="Roof age, recent electric bill, timeline — whatever's helpful."
+                    placeholder="Roof type, recent electricity bill, battery interest, timeline — whatever is helpful."
                   />
                 </div>
 
@@ -219,7 +217,7 @@ function Field({
         autoComplete={autoComplete}
         aria-invalid={!!error}
         aria-describedby={error ? `${name}-error` : undefined}
-        className={`w-full rounded-xl border bg-paper px-4 py-3 text-[15px] text-ink focus-ring focus:outline-none ${
+        className={`w-full rounded-xl border bg-paper px-4 py-3 text-[15px] text-ink focus-ring focus:outline-none transition-colors hover:border-solar-200 ${
           error ? "border-red-400" : "border-line"
         }`}
       />

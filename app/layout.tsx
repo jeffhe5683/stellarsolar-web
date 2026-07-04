@@ -1,26 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Stellar Solar — Solar, Battery & Maintenance",
+  title: "Stellar Solar — Adelaide Solar & Battery Installation",
   description:
-    "Stellar Solar designs, installs, and maintains solar and battery systems that quietly pay for themselves. Get a free quote today.",
+    "Premium solar, battery and maintenance solutions for Adelaide and South Australia. Clean installation, smart design and clear quotes.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

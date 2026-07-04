@@ -1,104 +1,133 @@
-import { ArrowRight, ChevronDown } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowRight, ChevronDown, ShieldCheck, Zap, BatteryCharging } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex flex-col overflow-hidden bg-ink pt-16"
-    >
-      {/* Dawn sky gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, #0A0E12 0%, #12202E 38%, #1E3A52 62%, #5A7A8F 78%, #F2A45C 100%)",
-        }}
-        aria-hidden
-      />
+    <section id="top" className="relative min-h-screen overflow-hidden bg-ink pt-16 text-white">
+      <div className="absolute inset-0 hero-pro-bg" aria-hidden />
+      <div className="absolute inset-0 solar-grid opacity-35" aria-hidden />
+      <div className="absolute -left-32 top-28 h-80 w-80 rounded-full bg-sky-500/20 blur-[110px] animate-float-slow" aria-hidden />
+      <div className="absolute right-[-7rem] top-24 h-[34rem] w-[34rem] rounded-full bg-solar-500/25 blur-[130px] animate-pulse-slow" aria-hidden />
+      <div className="sun-rays absolute right-[8%] top-[18%] hidden h-52 w-52 rounded-full md:block" aria-hidden>
+        <div className="absolute inset-10 rounded-full bg-solar-400 shadow-[0_0_80px_18px_rgba(255,145,66,0.48)]" />
+      </div>
 
-      <div className="absolute inset-0 overflow-hidden" aria-hidden><div className="light-sweep absolute top-0 h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent blur-3xl"/></div>
-      {/* Ambient glow behind the sun */}
-      <div
-        className="absolute left-1/2 top-[52%] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-solar-400/40 blur-[90px] animate-glow"
-        aria-hidden
-      />
+      <div className="relative z-10 max-w-content mx-auto grid min-h-[calc(100vh-4rem)] items-center gap-12 px-6 pb-20 pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-4 py-2 text-sm text-white/75 backdrop-blur animate-fade-up">
+            <span className="h-2 w-2 rounded-full bg-solar-400 shadow-[0_0_20px_rgba(255,171,99,0.9)]" />
+            Adelaide solar & battery installation
+          </div>
 
-      {/* Sun disc */}
-      <div
-        className="absolute left-1/2 top-[54%] h-28 w-28 md:h-36 md:w-36 -translate-x-1/2 -translate-y-1/2 rounded-full animate-rise solar-spin hero-float"
-        style={{
-          background:
-            "radial-gradient(circle at 35% 30%, #FFE3BE 0%, #FFAB63 45%, #F2721A 100%)",
-          boxShadow: "0 0 60px 10px rgba(255,145,66,0.45)",
-        }}
-        aria-hidden
-      />
+          <h1 className="mt-7 max-w-4xl text-[13vw] font-semibold leading-[0.92] tracking-tightest sm:text-6xl md:text-7xl lg:text-[5.8rem] animate-fade-up animation-delay-100">
+            Powering Adelaide with Solar, Battery & EV Charging.
+          </h1>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl animate-fade-up animation-delay-200">
+            Smart solar, battery storage and EV charging solutions for homes and small businesses across South Australia.
+          </p>
 
-      {/* Horizon + panel silhouettes */}
-      <svg
-        className="absolute bottom-0 left-0 w-full"
-        viewBox="0 0 1440 220"
-        preserveAspectRatio="none"
-        aria-hidden
-      >
-        <rect x="0" y="120" width="1440" height="100" fill="#0A0E12" />
-        {Array.from({ length: 12 }).map((_, i) => (
-          <g key={i} transform={`translate(${i * 130 - 40}, 70)`}>
-            <polygon
-              points="0,60 90,60 120,110 30,110"
-              fill="#141B22"
-              stroke="#22303B"
-              strokeWidth="1"
-            />
-            <line x1="15" y1="72" x2="105" y2="72" stroke="#22303B" />
-            <line x1="22" y1="86" x2="112" y2="86" stroke="#22303B" />
-            <line x1="28" y1="100" x2="118" y2="100" stroke="#22303B" />
-          </g>
-        ))}
-      </svg>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-up animation-delay-300">
+            <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[15px] font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-solar-50 hover:shadow-[0_18px_50px_-22px_rgba(255,171,99,0.9)] focus-ring">
+              Get a Free Quote
+              <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+            </a>
+            <a href="#projects" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-4 text-[15px] font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-white/10 focus-ring">
+              View Pro Design
+            </a>
+          </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-content w-full mx-auto px-6 lg:px-8 pb-28">
-        <p className="text-solar-200 text-sm font-medium tracking-wide mb-5">
-          Residential &amp; commercial solar
-        </p>
-        <h1 className="text-white font-semibold tracking-tightest leading-[0.98] text-[13vw] sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-4xl">
-          Your roof has a
-          <br />
-          second job.
-        </h1>
-        <p className="mt-7 text-lg md:text-xl text-white/70 max-w-xl leading-relaxed">
-          Stellar Solar designs, installs, and maintains solar and battery
-          systems sized for how you actually live — not a brochure.
-        </p>
+          <div className="mt-10 grid max-w-xl grid-cols-1 gap-3 text-sm text-white/65 sm:grid-cols-3 animate-fade-up animation-delay-400">
+            <TrustItem icon={<ShieldCheck size={16} />} text="Clean workmanship" />
+            <TrustItem icon={<Zap size={16} />} text="Fast quote process" />
+            <TrustItem icon={<BatteryCharging size={16} />} text="Battery ready" />
+          </div>
+        </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <a
-            href="#contact"
-            className="group glow-btn inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[15px] font-medium text-ink hover:bg-solar-50 transition-all duration-300 focus-ring"
-          >
-            Get a Free Quote
-            <ArrowRight
-              size={17}
-              className="transition-transform group-hover:translate-x-0.5"
-            />
-          </a>
-          <a
-            href="#process"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-4 text-[15px] font-medium text-white hover:bg-white/10 transition-colors focus-ring"
-          >
-            See how it works
-          </a>
+        <div className="relative mx-auto w-full max-w-[620px] animate-fade-up animation-delay-300">
+          <div className="absolute -inset-8 rounded-[3rem] bg-solar-400/20 blur-[90px]" />
+          <div className="relative overflow-hidden rounded-[2.4rem] border border-white/12 bg-white/[0.07] p-4 shadow-2xl backdrop-blur-xl">
+            <div className="stellar-story-scene" aria-label="Animated solar energy story: sunrise, solar panels, battery storage and EV charging">
+              <div className="story-stars" aria-hidden />
+              <div className="story-sun" aria-hidden />
+              <div className="story-sun-glow" aria-hidden />
+              <div className="story-hills story-hills-back" aria-hidden />
+              <div className="story-hills story-hills-front" aria-hidden />
+
+              <div className="story-house" aria-hidden>
+                <div className="story-roof" />
+                <div className="story-body" />
+                <div className="story-door" />
+                <div className="story-window story-window-left" />
+                <div className="story-window story-window-right" />
+                <div className="story-panels">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <span key={i} />
+                  ))}
+                </div>
+              </div>
+
+              <svg className="energy-path energy-path-solar" viewBox="0 0 300 160" aria-hidden>
+                <path d="M55 40 C 95 55, 115 80, 142 92 S 198 105, 238 124" />
+              </svg>
+              <svg className="energy-path energy-path-battery" viewBox="0 0 260 130" aria-hidden>
+                <path d="M42 35 C 85 62, 108 82, 132 86 S 198 92, 226 110" />
+              </svg>
+
+              <div className="story-inverter" aria-hidden>
+                <span />
+              </div>
+              <div className="story-battery" aria-hidden>
+                <div className="battery-level" />
+                <Zap size={28} />
+              </div>
+              <div className="story-charger" aria-hidden>
+                <span />
+              </div>
+              <div className="story-car" aria-hidden>
+                <div className="car-body" />
+                <div className="car-top" />
+                <div className="wheel wheel-left" />
+                <div className="wheel wheel-right" />
+              </div>
+
+              <div className="story-caption story-caption-one">
+                <span>1. Sunrise</span>
+                Clean energy begins.
+              </div>
+              <div className="story-caption story-caption-two">
+                <span>2. Solar</span>
+                Panels capture power.
+              </div>
+              <div className="story-caption story-caption-three">
+                <span>3. Battery + EV</span>
+                Store energy. Charge your drive.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <a
-        href="#services"
-        aria-label="Scroll to services"
-        className="relative z-10 self-center mb-8 text-white/60 hover:text-white transition-colors animate-bounce focus-ring rounded-full"
-      >
+      <a href="#services" aria-label="Scroll to services" className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 rounded-full text-white/60 transition-colors hover:text-white focus-ring animate-bounce">
         <ChevronDown size={22} />
       </a>
     </section>
+  );
+}
+
+function TrustItem({ icon, text }: { icon: ReactNode; text: string }) {
+  return (
+    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 backdrop-blur">
+      <span className="text-solar-300">{icon}</span>
+      {text}
+    </div>
+  );
+}
+
+function Metric({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+      <p className="text-xl font-semibold tracking-tight text-white">{value}</p>
+      <p className="mt-1 text-xs text-white/45">{label}</p>
+    </div>
   );
 }
