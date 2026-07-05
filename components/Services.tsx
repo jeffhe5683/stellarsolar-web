@@ -1,77 +1,78 @@
-import { Sun, BatteryCharging, Wrench, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Sun, BatteryCharging, Cable, ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
 
 const services = [
   {
+    id: "services",
     icon: Sun,
-    title: "Solar Installation",
-    description:
-      "Roof-first design, premium panels, tidy cable runs and a handover your customer can understand.",
-    points: ["Residential and small business", "Clean panel layout", "Inverter and monitoring setup"],
-    accent: "solar",
+    title: "Solar Power",
+    subtitle: "Clean & Renewable",
+    description: "Premium solar design and installation for Adelaide homes and businesses, with clean roof layouts and strong long-term performance.",
+    points: ["High-efficiency panels", "Inverter and monitoring setup", "Clean cabling and handover"],
   },
   {
+    id: "battery",
     icon: BatteryCharging,
     title: "Battery Storage",
-    description:
-      "Battery-ready systems that help customers use more of their own solar power after sunset.",
-    points: ["Backup-ready design", "Peak-rate reduction", "Future upgrade planning"],
-    accent: "sky",
+    subtitle: "Store Energy",
+    description: "Store your solar power and use it at night, during peak prices, or when your home needs backup power options.",
+    points: ["Battery-ready system design", "Backup options", "Peak-rate reduction planning"],
   },
   {
-    icon: Wrench,
-    title: "Maintenance & Monitoring",
-    description:
-      "Keep systems producing properly with inspections, cleaning, troubleshooting and performance checks.",
-    points: ["System health checks", "Fault finding", "Panel cleaning and servicing"],
-    accent: "ink",
+    id: "ev",
+    icon: Cable,
+    title: "EV Charging",
+    subtitle: "Power Your Drive",
+    description: "Smart EV charger installation integrated with solar, battery and home energy monitoring.",
+    points: ["Home EV chargers", "Solar-aware charging", "Tidy installation and testing"],
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-paper py-28 md:py-36">
-      <div className="absolute -right-28 top-16 h-80 w-80 rounded-full bg-solar-200/35 blur-[100px]" aria-hidden />
-      <div className="max-w-content relative mx-auto px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#05070A] py-28 text-white md:py-36">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,171,99,.22),transparent_30rem),radial-gradient(circle_at_90%_30%,rgba(62,143,245,.14),transparent_28rem)]" aria-hidden />
+      <div className="absolute inset-0 solar-grid opacity-10" aria-hidden />
+      <div className="relative mx-auto max-w-content px-6 lg:px-8">
         <Reveal>
-          <p className="text-solar-600 text-sm font-medium tracking-wide mb-4">What we do</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-solar-300">Integrated energy solutions</p>
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tightest text-ink max-w-2xl leading-tight">
-              Solar services presented like a premium brand.
+            <h2 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tightest text-white md:text-5xl">
+              One premium system: solar, storage and EV charging.
             </h2>
-            <p className="max-w-md text-slate-600 leading-relaxed">
-              Clear cards, strong benefits and visual details help customers understand what you offer quickly.
+            <p className="max-w-md leading-relaxed text-white/62">
+              Designed to match the hero image style: dark, modern, warm highlights and clear energy-flow messaging.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
               <Reveal key={s.title} delay={i * 100}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-line bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_80px_-50px_rgba(10,14,18,0.55)]">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-solar-500 via-solar-200 to-sky-500 opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl mb-6 ${
-                    s.accent === "solar" ? "bg-solar-50 text-solar-600" : s.accent === "sky" ? "bg-sky-50 text-sky-600" : "bg-ink/5 text-ink"
-                  }`}>
-                    <Icon size={24} strokeWidth={2} />
+                <article id={s.id} className="group h-full scroll-mt-28 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-7 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.085] hover:shadow-[0_30px_90px_-50px_rgba(255,171,99,.35)]">
+                  <div className="mb-7 flex items-center justify-between">
+                    <div className="grid h-16 w-16 place-items-center rounded-2xl border border-solar-400/45 bg-solar-400/10 text-solar-300 shadow-[0_0_35px_-20px_rgba(255,171,99,.95)]">
+                      <Icon size={29} />
+                    </div>
+                    <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white/32">0{i + 1}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-ink tracking-tight">{s.title}</h3>
-                  <p className="mt-3 text-slate-600 leading-relaxed">{s.description}</p>
-                  <ul className="mt-6 space-y-3">
+                  <p className="text-sm font-medium text-solar-300">{s.subtitle}</p>
+                  <h3 className="mt-2 text-2xl font-semibold tracking-tight text-white">{s.title}</h3>
+                  <p className="mt-4 leading-relaxed text-white/62">{s.description}</p>
+                  <ul className="mt-7 space-y-3">
                     {s.points.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-[14px] text-slate-700">
-                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-solar-600" />
+                      <li key={p} className="flex items-start gap-2.5 text-[14px] text-white/70">
+                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-solar-300" />
                         {p}
                       </li>
                     ))}
                   </ul>
-                  <a href="#contact" className="mt-7 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink focus-ring rounded-sm">
-                    Get a quote
-                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  <a href="#contact" className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-solar-300 focus-ring rounded-sm">
+                    Get a free quote <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                   </a>
-                </div>
+                </article>
               </Reveal>
             );
           })}

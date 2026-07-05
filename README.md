@@ -1,18 +1,6 @@
-# Stellar Solar Pro Website
+# Stellar Solar Website
 
-A premium Next.js + Tailwind CSS landing page for Stellar Solar.
-
-## What is included
-
-- Pro animated hero section
-- Animated Stellar Solar logo with rotating sun
-- Solar panel shine effects
-- Smooth scroll reveal animations
-- Services, process, project styles, results and testimonials sections
-- Animated statistics counters
-- Responsive mobile navigation
-- Contact form UI with validation
-- SEO metadata for Adelaide / South Australia solar services
+A premium dark solar company landing page based on the supplied hero reference image.
 
 ## Run locally
 
@@ -21,20 +9,18 @@ npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Then open http://localhost:3000
 
-## Deploy to Vercel
+## Build
 
-1. Upload this project to GitHub, or import the ZIP into Vercel.
-2. Framework preset: Next.js.
-3. Build command: `npm run build`.
-4. Output directory: leave default.
+```bash
+npm run build
+```
 
-## Important edits before publishing
+## Included style
 
-Update these placeholders in `components/ContactForm.tsx`:
-
-- Phone: `0400 000 000`
-- Email: `hello@stellarsolar.au`
-
-Update the placeholder numbers in `components/Stats.tsx` after you have real business data.
+- Full-screen cinematic hero with the supplied solar house image
+- Dark navigation bar with Stellar Solar logo
+- Solar → Battery → EV Charging energy-flow animation
+- Premium service sections for Solar, Battery and EV Charging
+- About, projects, stats, testimonials and contact form sections
