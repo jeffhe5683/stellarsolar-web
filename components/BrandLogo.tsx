@@ -1,21 +1,38 @@
-export default function BrandLogo({ dark = false }: { dark?: boolean }) {
+export default function BrandLogo() {
   return (
-    <span className="inline-flex items-center gap-3 font-semibold tracking-tight">
-      <span className="relative h-11 w-11 shrink-0 text-solar-400" aria-hidden>
-        <span className="absolute left-2 top-1 h-5 w-7 rounded-t-full bg-solar-400 shadow-[0_0_18px_rgba(255,171,99,.55)]" />
-        <span className="absolute left-0 top-6 h-[1.8px] w-11 bg-white/80" />
-        <span className="absolute left-2 top-7 h-[1.8px] w-7 bg-white/80" />
-        <span className="absolute left-4 top-9 h-[1.8px] w-4 bg-white/80" />
-        <span className="absolute left-[8px] top-[25px] h-4 w-[1.8px] rotate-[15deg] bg-white/80" />
-        <span className="absolute left-[32px] top-[25px] h-4 w-[1.8px] rotate-[-15deg] bg-white/80" />
-        <span className="absolute left-1 top-0 h-[1.5px] w-3 rotate-[-35deg] bg-solar-400" />
-        <span className="absolute left-[20px] -top-1 h-3 w-[1.5px] bg-solar-400" />
-        <span className="absolute right-1 top-0 h-[1.5px] w-3 rotate-[35deg] bg-solar-400" />
-      </span>
-      <span className="leading-[0.92] tracking-[0.18em] uppercase">
-        <span className={dark ? "block text-white" : "block text-white"}>Stellar</span>
-        <span className="block text-solar-400">Solar</span>
-      </span>
-    </span>
+    <div className="flex items-center gap-3">
+      <svg
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="shrink-0"
+      >
+        <circle cx="22" cy="22" r="9" fill="#FFAB63" />
+        <path
+          d="M22 4V10M22 34V40M4 22H10M34 22H40M9.3 9.3L13.5 13.5M30.5 30.5L34.7 34.7M34.7 9.3L30.5 13.5M13.5 30.5L9.3 34.7"
+          stroke="#FFAB63"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M12 27H32L29 34H15L12 27Z"
+          fill="#1E293B"
+          stroke="#FFAB63"
+          strokeWidth="1.5"
+        />
+        <path d="M17 27L15 34M22 27V34M27 27L29 34" stroke="#FFAB63" strokeWidth="1" />
+      </svg>
+
+      <div className="leading-none">
+        <div className="text-xl font-semibold tracking-wide text-white">
+          Stellar<span className="text-solar-400">Solar</span>
+        </div>
+        <div className="mt-1 text-[11px] uppercase tracking-[0.28em] text-white/45">
+          Energy Solutions
+        </div>
+      </div>
+    </div>
   );
 }
